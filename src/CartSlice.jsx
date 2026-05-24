@@ -7,7 +7,7 @@ export const CartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-        const [name,image,cost] = action.payload;
+        const {name,image,cost} = action.payload;
         const existingItem = state.items.find(item => item.name === name);
         if(existingItem){
             existingItem.quantity++;
@@ -25,7 +25,7 @@ export const CartSlice = createSlice({
         const itemToUpdate = state.items.find(item => item.name === name);
         if (itemToUpdate) {
             itemToUpdate.quantity = quantity; // If the item is found, update its quantity to the new value
-    }
+        }
     
     },
   },
